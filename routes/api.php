@@ -17,3 +17,11 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+use App\Http\Controllers\BlogController;
+
+Route::get('/blogs', [BlogController::class, 'index']);
+Route::get('/blogs/{id}', [BlogController::class, 'show']);
+Route::post('/blogs', [BlogController::class, 'store']);
+Route::put('/blogs/{id}', [BlogController::class, 'update']);
+Route::delete('/blogs/{id}', [BlogController::class, 'destroy']);
